@@ -59,6 +59,16 @@ elif active_field[shot] != "#":     #Check if the shot missed a ship(#)
     #Check for victory
 
 
+########################################################################
+    # Switch active player
+
+if hit== False and active_player==1:
+    active_player=2
+
+if hit== False and active_player==2:
+    active_player=1
+
+
 
 
 

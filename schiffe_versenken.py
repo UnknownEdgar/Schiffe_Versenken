@@ -20,15 +20,19 @@ player_shot="" # shot input by player
 
 
 if active_player == 1:      #Check which player is active and assign 
-    active_field=field_1    # the corresponding fields to be active
+    active_field=field_2    # the corresponding fields to be active
     active_shot_field=shotfield_1
 elif active_player == 2:
-    active_field=field_2
+    active_field=field_1
     active_shot_field=shotfield_2
 
 
 print("Spieler"+"f{active_player}""ist dran.")
 player_shot=input("Auf welches Feld möchten Sie schießen?")
+
+
+print_field(active_shot_field)
+
 
 shot=grid_convertion(player_shot)
 

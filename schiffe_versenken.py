@@ -12,8 +12,9 @@ shotfield_1 = []
 shotfield_2 = []
 victory = False
 active_player = 0
-shot = []
+shot = 0 # shot input by player after grid convertion 
 hit = False
-
+player_shot="" # shot input by player 
 
 print("Spieler"+"f{active_player}""ist dran.")
+

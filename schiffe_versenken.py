@@ -5,6 +5,10 @@
 #       # = ship
 #   space = water/placeholder
 
+# import of all requiered modules/files
+import converter as cv
+import ausgabe as au
+
 # common variables
 field_1 = []
 field_2 = []

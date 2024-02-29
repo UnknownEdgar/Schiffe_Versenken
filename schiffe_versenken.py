@@ -36,15 +36,15 @@ while victory==False:
     ####################################################################
         #shot input and convertion
 
-    print("Spieler "+"f{active_player}"" ist dran.")
+    print(f"Spieler {active_player} ist dran.") # Show which player is active
     
-    print_field(active_shot_field)
+    print_field(active_shot_field) # Show the shot field of the active player
     
-    player_shot=input("Auf welches Feld möchten Sie schießen?")
+    player_shot=input("Auf welches Feld möchten Sie schießen?") # get the shot coordinates by the player
    
 
 
-    shot=grid_convertion(player_shot)
+    shot=grid_convertion(player_shot) # convert the coordinates to the array index
 
     #####################################################################
         # hit detection
@@ -67,14 +67,14 @@ while victory==False:
     ########################################################################
         # Switch active player
 
-    if hit== False and active_player==1:
+    if hit== False and active_player==1: # switch player two to be active when the shot missed
         active_player=2
 
-    if hit== False and active_player==2:
+    if hit== False and active_player==2: # switch player one to be active when the shot missed
         active_player=1
 
 
-    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")
+    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n") # create empty space for visualisation of new shot 
 
     if hit==True:
         print(f"spieler {active_player} hat getroffen und darf nochmal schießen")

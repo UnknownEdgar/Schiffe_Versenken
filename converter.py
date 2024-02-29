@@ -1,16 +1,19 @@
 def grid_conversion():
 
-    keep_going = 0
-    
+    # initialization of the variable for the while loop
+    keep_going_r = 0
+         
+    #################################################################################     
+    # while loop for the input of the row with error feedback and conversion to int #
+    ################################################################################# 
+    while keep_going_r != 1:
         
-    while keep_going != 1:
-        
-        keep_going = 1
+        keep_going_r = 1
     
         try:
             row = str(input("Spalte: "))
         except ValueError:
-            error = True
+            keep_going_r = 0
     
         if (row == "A") or (row == "a"):
             i_row = 0
@@ -29,26 +32,31 @@ def grid_conversion():
 
         else:
             print("Falsche Eingabe (A - E)")
-            keep_going = 0
+            keep_going_r = 0
 
-    keep_going = 0
+    # initialization of the variable for the while loop
+    keep_going_l = 0
 
-    while keep_going != 1:
+    ############################################################
+    # while loop for the input of the line with error feedback #
+    ############################################################
+    while keep_going_l != 1:
 
-        keep_going = 1
+        keep_going_l = 1
 
         try:
             line = int(input("Zeile: "))
         except ValueError:
-            error = True
+            keep_going_l = 0
         
         if 0 < line < 6:
             line = line
         else:
-            keep_going = 0
+            keep_going_l = 0
             print("Faslche Eingabe (1 - 5)")
 
-
+    # calculation of the field
     field = i_row + ((line - 1) * 5)
 
+    #return of the field
     return field

@@ -44,6 +44,23 @@ shot=grid_convertion(player_shot)
 #####################################################################
     # hit detection
 
+if active_field[shot]== "#":        #Check if the shot hit a ship(#)
+    hit=True                        
+    active_shot_field[shot]="X"     # mark corresponding field as a hit(X)
+    active_field[shot]=" "          # delete the ship in the enemies field
+    print("Der Schuss hat getroffen!")
+
+elif active_field[shot] != "#":     #Check if the shot missed a ship(#)
+    hit=False
+    active_shot_field[shot]="O"     # mark corresponding field as a miss(O)
+    print("Der Schuss ging daneben!")
+
+#######################################################################
+    #Check for victory
+
+
+
+
 
 
 

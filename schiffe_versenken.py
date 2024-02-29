@@ -37,10 +37,11 @@ while victory==False:
         #shot input and convertion
 
     print("Spieler "+"f{active_player}"" ist dran.")
-    player_shot=input("Auf welches Feld möchten Sie schießen?")
-
-
+    
     print_field(active_shot_field)
+    
+    player_shot=input("Auf welches Feld möchten Sie schießen?")
+   
 
 
     shot=grid_convertion(player_shot)

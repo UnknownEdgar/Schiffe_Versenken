@@ -44,7 +44,7 @@ while victory==False:
    
 
 
-    shot=grid_convertion(player_shot) # convert the coordinates to the array index
+    shot=grid_conversion(player_shot) # convert the coordinates to the array index
 
     #####################################################################
         # hit detection

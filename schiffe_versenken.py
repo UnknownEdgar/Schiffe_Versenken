@@ -6,6 +6,8 @@
 #   space = water/placeholder
 
 # common variables
+active_field = []
+active_shot_field=[]
 field_1 = []
 field_2 = []
 shotfield_1 = []
@@ -20,5 +22,7 @@ print("Spieler"+"f{active_player}""ist dran.")
 player_shot=input("Auf welches Feld möchten Sie schießen?")
 
 shot=grid_convertion(player_shot)
+
+
 
 

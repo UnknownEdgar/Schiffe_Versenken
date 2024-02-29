@@ -19,6 +19,9 @@ hit = False
 player_shot="" # shot input by player 
 
 
+####################################################################
+    #active player check
+
 if active_player == 1:      #Check which player is active and assign 
     active_field=field_2    # the corresponding fields to be active
     active_shot_field=shotfield_1
@@ -26,8 +29,10 @@ elif active_player == 2:
     active_field=field_1
     active_shot_field=shotfield_2
 
+####################################################################
+    #shot input and convertion
 
-print("Spieler"+"f{active_player}""ist dran.")
+print("Spieler "+"f{active_player}"" ist dran.")
 player_shot=input("Auf welches Feld möchten Sie schießen?")
 
 
@@ -35,6 +40,14 @@ print_field(active_shot_field)
 
 
 shot=grid_convertion(player_shot)
+
+#####################################################################
+    # hit detection
+
+
+
+
+
 
 
 

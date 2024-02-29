@@ -17,4 +17,8 @@ hit = False
 player_shot="" # shot input by player 
 
 print("Spieler"+"f{active_player}""ist dran.")
+player_shot=input("Auf welches Feld möchten Sie schießen?")
+
+shot=grid_convertion(player_shot)
+
 

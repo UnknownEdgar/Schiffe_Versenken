@@ -1,6 +1,12 @@
 def print_field(in_array):
+    ausgabe = "  A B C D E"
     for i in range(25):
+
         if (i % 5) != 0:
-            ausgabe = in_array[i]
+            ausgabe = ausgabe + in_array[i] + "|"
+        
         else:
-            ausgabe = "\n" + in_array[i]
+            line =int(i / 5 + 1)
+            ausgabe = ausgabe + "\n" + str(line) + "|" + in_array[i] + "|"
+
+    print(ausgabe)

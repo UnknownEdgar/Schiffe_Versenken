@@ -34,7 +34,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                               elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
                                     error_ver = True
 
-                  if dir == 0 and (field % GRID) < (GRID - SHIP_SIZE) and error_hor == False:                        
+                  if dir == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        
                         ship += 1
                         add_left(field_player, field, GRID)
                         for i in range(SHIP_SIZE):

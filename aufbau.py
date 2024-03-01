@@ -22,18 +22,14 @@ def aufbau(field_player):
                   add_left(field_player, field)
                   for i in range(3):
                         field_player[field + i] = "#"
-                        add_above(field_player, field + i)
-                        add_below(field_player, field + i)
-                  add_right(field_player, field + 4)
+                        add_abr(field_player, field + i)
 
             elif dir == 1 and field < 15:
                   ship += 1
                   add_above(field_player, field)
                   for i in range(3):
-                    field_player[field + (i * 5)] = "#"
-                    add_left(field_player, field + i)
-                    add_right(field_player, field + i)
-                  add_below(field_player, field + 15)
+                        field_player[field + (i * 5)] = "#"
+                        add_blr(field_player, field, (i * 5))
 
             else:
                 print("Falsche Eingabe. Bitte erneut probieren")
@@ -42,14 +38,20 @@ def aufbau(field_player):
             
             if dir == 0 and (field % 5) < 4:
                   ship += 1
+                  add_left(field_player, field)
                   for i in range(2):
                        field_player[field + i] = "#"
+                       add_abr(field_player, field + i)
             
             elif dir == 1 and field < 20:
-                  
                   ship +=1
+                  add_above(field_player, field)
                   for i in range(2):
                        field_player[field + (i * 5)] = "#"
+                       add_blr(field_player, field, (i * 5))
+            
+            else:
+                print("Falsche Eingabe. Bitte erneut probieren")
 
       else:
             for i in range(25):
@@ -77,3 +79,13 @@ def add_above(field_array, pos):
 def add_below(field_array, pos):
       if pos < 20:
             field_array[pos + 5] = "O"
+
+def add_abr(playfield, position, loop):
+      add_above(playfield, position + loop)
+      add_below(playfield, position + loop)
+      add_right(playfield, position + loop)
+
+def add_blr(playfield, position, loop):
+      add_below(playfield, position + loop)
+      add_left(playfield, position + loop)
+      add_right(playfield, position + loop)

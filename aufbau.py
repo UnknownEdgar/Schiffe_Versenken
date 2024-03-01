@@ -68,7 +68,7 @@ def aufbau(field_player):
                               add_abr(field_player, field, i)
                   
                   elif dir == 1 and error_ver == False:
-                        ship +=1
+                        ship += 1
                         add_above(field_player, field)
                         for i in range(2):
                               field_player[field + (i * 5)] = "#"

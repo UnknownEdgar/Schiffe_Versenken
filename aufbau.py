@@ -13,24 +13,32 @@ def aufbau(field_player):
       
       field = cv.grid_conversion()
 
-      dir = int(input("Soll das Schiff vertikal (0) oder horizontal (1) stehen? "))
+      dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen? "))
 
       if ship < 2:
             
             if dir == 0 and (field % 5) < 3:
                   ship += 1
+                  add_left(field_player, field)
                   for i in range(3):
-                     field_player[field + i] = "#"
+                        field_player[field + i] = "#"
+                        add_above(field_player, field + i)
+                        add_below(field_player, field + i)
+                  add_right(field_player, field + 4)
 
             elif dir == 1 and field < 15:
                   ship += 1
+                  add_above(field_player, field)
                   for i in range(3):
                     field_player[field + (i * 5)] = "#"
+                    add_left(field_player, field + i)
+                    add_right(field_player, field + i)
+                  add_below(field_player, field + 15)
 
             else:
                 print("Falsche Eingabe. Bitte erneut probieren")
       
-      else:
+      elif 2 <= ship < 4:
             
             if dir == 0 and (field % 5) < 4:
                   ship += 1
@@ -43,5 +51,29 @@ def aufbau(field_player):
                   for i in range(2):
                        field_player[field + (i * 5)] = "#"
 
+      else:
+            for i in range(25):
+                  if field_player[i] == "O":
+                        field_player[i] = " "
+
+                  else:
+                       field_player[i] = field_player[i]                  
+
       print("Aktuelles Spielfeld")
-      a.print_field(field_player)      
+      a.print_field(field_player)
+
+def add_left(field_array, pos):
+      if (pos % 5) > 0:
+            field_array[pos - 1] = "O"
+
+def add_right(field_array, pos):
+      if (pos % 5) < 4:
+            field_array[pos + 1] = "O"
+
+def add_above(field_array, pos):
+      if pos > 4:
+            field_array[pos - 5] = "O"
+
+def add_below(field_array, pos):
+      if pos < 20:
+            field_array[pos + 5] = "O"

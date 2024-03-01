@@ -24,9 +24,13 @@ def aufbau(field_player):
       if ship < 2 and dir != 8:
 
             for i in range(3):
-                        if field_player[field + i] == "O":
+                        if dir == 0 and  field > 22:
                               error_hor = True
-                        if field_player[field + (i * 5)] == "0":
+                        elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X" or (field % 5) > 2):
+                              error_hor = True
+                        if dir == 1 and field >= 15:
+                              error_ver = True
+                        elif dir == 1 and (field_player[field + (i * 5)] == "O" or field_player[field + i] == "X"):
                               error_ver = True
 
             if dir == 0 and (field % 5) < 3 and error_hor == False:                        
@@ -34,9 +38,9 @@ def aufbau(field_player):
                   add_left(field_player, field)
                   for i in range(3):
                         field_player[field + i] = "#"
-                        add_abr(field_player, field + i)
+                        add_abr(field_player, field, i)
 
-            elif dir == 1 and field < 15 and error_ver == False:
+            elif dir == 1 and error_ver == False:
                   ship += 1
                   add_above(field_player, field)
                   for i in range(3):
@@ -49,19 +53,23 @@ def aufbau(field_player):
       elif 2 <= ship < 4 and dir != 8:
 
             for i in range(2):
-                  if field_player[field_player + i] == "O":
+                  if dir == 0 and  field > 22:
                         error_hor = True
-                  if field_player[field + (i * 5)] == "O":
+                  elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X") or (field % 5) > 3:
+                        error_hor = True
+                  if dir == 1 and field >= 20:
+                        error_ver = True
+                  elif dir == 1 and (field_player[field + (i * 5)] == "O" or field_player[field + i] == "X"):
                         error_ver = True
             
-            if dir == 0 and (field % 5) < 4 and error_hor == False:
+            if dir == 0 and (field % 5) < 3 and error_hor == False:
                   ship += 1
                   add_left(field_player, field)
                   for i in range(2):
                        field_player[field + i] = "#"
-                       add_abr(field_player, field + i)
+                       add_abr(field_player, field, i)
             
-            elif dir == 1 and field < 20 and error_ver == False:
+            elif dir == 1 and error_ver == False:
                   ship +=1
                   add_above(field_player, field)
                   for i in range(2):
@@ -115,3 +123,8 @@ def add_blr(playfield, position, loop):
 def gen_empty(field_array):
       for i in range(25):
             field_array[i] = " "
+
+spieler1 = ["","","","","","","","","","","","","","","","","","","","","","","","","",]
+gen_empty(spieler1)
+aufbau(spieler1)
+a.print_field(spieler1)

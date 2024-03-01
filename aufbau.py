@@ -128,7 +128,6 @@ def gen_empty(field_array, field_size):
       for i in range(field_size):
             field_array[i] = " "
 
-spieler1 = ["","","","","","","","","","","","","","","","","","","","","","","","","",]
-gen_empty(spieler1,25)
-aufbau(spieler1,25,5)
-a.print_field(spieler1)
+def gen_array(in_array,size):
+      for i in range(size):
+            in_array.append(" ")

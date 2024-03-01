@@ -14,8 +14,7 @@ def aufbau(field_player):
       field = cv.grid_conversion()
 
       try:
-            dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen?\n"
-                            "Mit 8 kann das Spielfeld zurückgesetzt werden\n"))
+            dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen?\nMit 8 kann das Spielfeld zurückgesetzt werden\n"))
       except ValueError:
             error = True
 

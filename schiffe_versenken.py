@@ -62,15 +62,18 @@ while keep_going:
         if active_player == 1:                  # Check which player is active and assign 
             active_field = field_2              # the corresponding fields to be active
             active_shot_field = shotfield_1
+            own_field = field_1
         elif active_player == 2:
             active_field = field_1
             active_shot_field = shotfield_2
+            own_field = field_2
 
         ####################################################################
             #shot input and conversion
 
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
+        print("Deine Schüsse:")
         au.print_field(active_shot_field)                               # Show the shot field of the active player
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
@@ -83,12 +86,13 @@ while keep_going:
         if active_field[shot] == "#":               # Check if the shot hit a ship(#)
             hit = True                        
             active_shot_field[shot] = "X"           # mark corresponding field as a hit(X)
-            active_field[shot] = " "                # delete the ship in the enemies field
+            active_field[shot] = "X"                # delete the ship in the enemies field
             print("Der Schuss hat getroffen!")
 
         elif active_field[shot] != "#":             # Check if the shot missed a ship(#)
             hit = False 
             active_shot_field[shot] = "O"           # mark corresponding field as a miss(O)
+            active_field[shot] = "O"
             print("Der Schuss ging daneben!")
 
         #######################################################################
@@ -112,7 +116,17 @@ while keep_going:
         elif hit == False and active_player == 2: # switch player one to be active when the shot missed
             active_player = 1
 
-
+        try:
+            check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))
+        except ValueError:
+            Error = True
+        if check_self == 1:
+            print("Deine Schiffe:")
+            au.print_field(own_field)
+        
+        check_self = 0
+        
+        pause = input("Beliebiege Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n") # create empty space for visualisation of new shot 
 
         if hit == True and counter != 0:

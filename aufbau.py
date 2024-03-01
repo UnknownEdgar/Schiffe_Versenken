@@ -15,16 +15,25 @@ def aufbau(field_player):
 
       dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen? "))
 
+      error_hor = False
+      error_ver = False
+
       if ship < 2:
-            
-            if dir == 0 and (field % 5) < 3:
+
+            for i in range(3):
+                        if field_player[field + i] == "O":
+                              error_hor = True
+                        if field_player[field + (i * 5)] == "0":
+                              error_ver = True
+
+            if dir == 0 and (field % 5) < 3 and error_hor == False:                        
                   ship += 1
                   add_left(field_player, field)
                   for i in range(3):
                         field_player[field + i] = "#"
                         add_abr(field_player, field + i)
 
-            elif dir == 1 and field < 15:
+            elif dir == 1 and field < 15 and error_ver == False:
                   ship += 1
                   add_above(field_player, field)
                   for i in range(3):
@@ -35,15 +44,21 @@ def aufbau(field_player):
                 print("Falsche Eingabe. Bitte erneut probieren")
       
       elif 2 <= ship < 4:
+
+            for i in range(2):
+                  if field_player[field_player + i] == "O":
+                        error_hor = True
+                  if field_player[field + (i * 5)] == "O":
+                        error_ver = True
             
-            if dir == 0 and (field % 5) < 4:
+            if dir == 0 and (field % 5) < 4 and error_hor == False:
                   ship += 1
                   add_left(field_player, field)
                   for i in range(2):
                        field_player[field + i] = "#"
                        add_abr(field_player, field + i)
             
-            elif dir == 1 and field < 20:
+            elif dir == 1 and field < 20 and error_ver == False:
                   ship +=1
                   add_above(field_player, field)
                   for i in range(2):
@@ -89,3 +104,7 @@ def add_blr(playfield, position, loop):
       add_below(playfield, position + loop)
       add_left(playfield, position + loop)
       add_right(playfield, position + loop)
+
+def gen_empty(field_array):
+      for i in range(25):
+            field_array[i] = " "

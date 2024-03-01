@@ -24,15 +24,8 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                   
                   SHIP_SIZE = 3
 
-                  for i in range(SHIP_SIZE):
-                              if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
-                                    error_hor = True
-                              elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X" or (field % GRID) > (GRID - SHIP_SIZE)):
-                                    error_hor = True
-                              if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
-                                    error_ver = True
-                              elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
-                                    error_ver = True
+                  error_hor = check_error_hor(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field)
+                  error_ver = check_error_ver(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field)
 
                   if dir == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        
                         ship += 1
@@ -55,15 +48,8 @@ def aufbau(field_player, FIELD_SIZE, GRID):
 
                   SHIP_SIZE = 2
 
-                  for i in range(SHIP_SIZE):
-                        if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
-                              error_hor = True
-                        elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X") or (field % GRID) > (GRID - SHIP_SIZE):
-                              error_hor = True
-                        if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
-                              error_ver = True
-                        elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
-                              error_ver = True
+                  error_hor = check_error_hor(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field)
+                  error_ver = check_error_ver(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field)
                   
                   if dir == 0 and error_hor == False:
                         ship += 1
@@ -131,3 +117,19 @@ def gen_empty(field_array, field_size):
 def gen_array(in_array,size):
       for i in range(size):
             in_array.append(" ")
+
+def check_error_hor(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field):
+      for i in range(SHIP_SIZE):
+            if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
+                  error_hor = True
+            elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X" or (field % GRID) > (GRID - SHIP_SIZE)):
+                  error_hor = True
+      return error_hor
+
+def check_error_ver(field_player, FIELD_SIZE, SHIP_SIZE, GRID, field):           
+      for i in range(SHIP_SIZE):
+            if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
+                  error_ver = True
+            elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
+                  error_ver = True
+      return error_ver

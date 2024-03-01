@@ -13,12 +13,16 @@ def aufbau(field_player):
       
       field = cv.grid_conversion()
 
-      dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen? "))
+      try:
+            dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen?\n"
+                            "Mit 8 kann das Spielfeld zurückgesetzt werden\n"))
+      except ValueError:
+            error = True
 
       error_hor = False
       error_ver = False
 
-      if ship < 2:
+      if ship < 2 and dir != 8:
 
             for i in range(3):
                         if field_player[field + i] == "O":
@@ -43,7 +47,7 @@ def aufbau(field_player):
             else:
                 print("Falsche Eingabe. Bitte erneut probieren")
       
-      elif 2 <= ship < 4:
+      elif 2 <= ship < 4 and dir != 8:
 
             for i in range(2):
                   if field_player[field_player + i] == "O":
@@ -67,6 +71,10 @@ def aufbau(field_player):
             
             else:
                 print("Falsche Eingabe. Bitte erneut probieren")
+      
+      elif dir == 8:
+            gen_empty(field_player)
+            ship = 0
 
       else:
             for i in range(25):

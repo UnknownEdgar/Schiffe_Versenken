@@ -6,7 +6,7 @@ def print_field(in_array):
             ausgabe = ausgabe + in_array[i] + "|"
         
         else:
-            line =int(i / 5 + 1)
+            line = int(i / 5 + 1)
             ausgabe = ausgabe + "\n" + str(line) + "|" + in_array[i] + "|"
 
     print(ausgabe)

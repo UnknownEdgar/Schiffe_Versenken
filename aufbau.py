@@ -1,9 +1,6 @@
 import ausgabe as a
 import converter as cv
 def aufbau(field_player, FIELD_SIZE, GRID):
-      FIELD_SIZE = 25
-      SHIP_SIZE = 0
-      GRID = 5
       
       a.print_field(field_player)
 

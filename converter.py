@@ -53,7 +53,7 @@ def grid_conversion():
             line = line
         else:
             keep_going_l = 0
-            print("Faslche Eingabe (1 - 5)")
+            print("Falsche Eingabe (1 - 5)")
 
     # calculation of the field
     field = i_row + ((line - 1) * 5)

@@ -98,13 +98,13 @@ while keep_going:
         #######################################################################
             #Check for victory
         
-        counter = 0
+        ships_left = 0
 
         for i in range(25):
             if active_field[i] == "#":              # Check if a ship(#) is still on the active grid
-                counter += 1                        # count up the counter by one
+                ships_left += 1                        # count up the amount of ships left by one
         
-        if counter == 0:                            # when counter didn't count up -> no more ship on grid
+        if ships_left == 0:                            # when no more ship on grid
             victory = 1                             # set feedback that one player won and the game shall stop
 
         ########################################################################
@@ -129,7 +129,7 @@ while keep_going:
         pause = input("Beliebiege Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n") # create empty space for visualisation of new shot 
 
-        if hit == True and counter != 0:
+        if hit == True and ships_left != 0:
             print(f"Spieler {active_player} hat getroffen und darf nochmal schießen.")
 
     ################################################################################################

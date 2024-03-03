@@ -1,3 +1,17 @@
+#########################################################################################################
+#                                       game: Schiffe versenken                                         #
+#                            Prüfungsaufgabe Informatik TEA23 Pogrammentwurf                            #                       
+#########################################################################################################
+#                        authors: Edgar Mailinowsky, Johannes Rudolph, Tom Gluth                        #
+#########################################################################################################
+
+
+#########################################################################################################
+#                                              Desciption                                               #
+#                             the description can be found in the README file                           #
+#########################################################################################################
+
+
 # symbols of the game
 
 #       X = hit
@@ -28,7 +42,7 @@ shotfield_1 = []
 shotfield_2 = []
 victory = False
 
-
+# programm loop
 while keep_going:
 
     # creating all arrays with SPACES
@@ -46,10 +60,10 @@ while keep_going:
     # creating ships in arrays
     print("Spieler 1 ist dran:\n")
     af.aufbau(field_1, FIELD_SIZE, GRID)
-    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space for visualisation of new shot 
-    print("Spieler 2 ist dran:\n")
+    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space
+    print("Spieler 2 ist dran:\n") 
     af.aufbau(field_2, FIELD_SIZE, GRID)
-    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space for visualisation of new shot  
+    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space 
 
     ################################################################################################
     '''Shot Sequence'''
@@ -69,7 +83,7 @@ while keep_going:
             own_field = field_2
 
         ####################################################################
-            #shot input and conversion
+            # shot input and conversion
 
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
@@ -86,17 +100,17 @@ while keep_going:
         if active_field[shot] == "#":               # Check if the shot hit a ship(#)
             hit = True                        
             active_shot_field[shot] = "X"           # mark corresponding field as a hit(X)
-            active_field[shot] = "X"                # delete the ship in the enemies field
+            active_field[shot] = "X"                # mark hit of the ship in the enemies field
             print("Der Schuss hat getroffen!")
 
         elif active_field[shot] != "#":             # Check if the shot missed a ship(#)
             hit = False 
             active_shot_field[shot] = "O"           # mark corresponding field as a miss(O)
-            active_field[shot] = "O"
+            active_field[shot] = "O"                # mark miss in the enemies field
             print("Der Schuss ging daneben!")
 
         #######################################################################
-            #Check for victory
+            # Check for victory
         
         counter = 0
 
@@ -110,24 +124,24 @@ while keep_going:
         ########################################################################
             # Switch active player
 
-        if hit == False and active_player == 1: # switch player two to be active when the shot missed
+        if hit == False and active_player == 1:     # switch player two to be active when the shot missed
             active_player = 2
         
-        elif hit == False and active_player == 2: # switch player one to be active when the shot missed
+        elif hit == False and active_player == 2:   # switch player one to be active when the shot missed
             active_player = 1
 
         try:
-            check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))
+            check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))   # give the active player the opportunity to look at his own field
         except ValueError:
-            Error = True
-        if check_self == 1:
+            Error = True    
+        if check_self == 1:                                                                             # print own field when player demands to see it
             print("Deine Schiffe:")
             au.print_field(own_field)
         
         check_self = 0
         
         pause = input("Beliebiege Taste drücken, um fortzufahren")
-        print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n") # create empty space for visualisation of new shot 
+        print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
         if hit == True and counter != 0:
             print(f"Spieler {active_player} hat getroffen und darf nochmal schießen.")

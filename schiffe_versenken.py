@@ -1,8 +1,8 @@
 #########################################################################################################
 #                                       game: Schiffe versenken                                         #
-#                            Prüfungsaufgabe Informatik TEA23 Pogrammentwurf                            #                       
+#                            Prüfungsaufgabe Informatik TEA23 Programmentwurf                           #                       
 #########################################################################################################
-#                        authors: Edgar Mailinowsky, Johannes Rudolph, Tom Gluth                        #
+#                        authors: Edgar Malinowsky, Johannes Rudolph, Tom Gluth                         #
 #########################################################################################################
 
 
@@ -59,10 +59,10 @@ while keep_going:
     af.gen_empty(shotfield_2, FIELD_SIZE)
 
     # creating ships in arrays
-    print("Spieler 1 ist dran:\n")
+    print("Spieler 1 ist dran:")
     af.aufbau(field_1, FIELD_SIZE, GRID)
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space
-    print("Spieler 2 ist dran:\n") 
+    print("Spieler 2 ist dran:") 
     af.aufbau(field_2, FIELD_SIZE, GRID)
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space 
 

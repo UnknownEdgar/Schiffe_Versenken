@@ -7,7 +7,7 @@
 
 
 #########################################################################################################
-#                                              Desciption                                               #
+#                                              Description                                              #
 #                             the description can be found in the README file                           #
 #########################################################################################################
 
@@ -18,6 +18,7 @@
 #       O = miss / non placable point
 #       # = ship
 #   space = water/placeholder
+
 
 # import of all requiered modules/files
 import converter as cv
@@ -88,7 +89,7 @@ while keep_going:
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
         print("Deine Schüsse:")
-        au.print_field(active_shot_field)                               # Show the shot field of the active player
+        au.print_field(active_shot_field, GRID)                         # Show the shot field of the active player
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
     
@@ -112,13 +113,13 @@ while keep_going:
         #######################################################################
             # Check for victory
         
-        counter = 0
+        ships_left = 0
 
         for i in range(25):
             if active_field[i] == "#":              # Check if a ship(#) is still on the active grid
-                counter += 1                        # count up the counter by one
+                ships_left += 1                     # count up the counter ships_left by one
         
-        if counter == 0:                            # when counter didn't count up -> no more ship on grid
+        if ships_left == 0:                         # when counter didn't count up -> no more ship on grid
             victory = 1                             # set feedback that one player won and the game shall stop
 
         ########################################################################
@@ -136,14 +137,14 @@ while keep_going:
             Error = True    
         if check_self == 1:                                                                             # print own field when player demands to see it
             print("Deine Schiffe:")
-            au.print_field(own_field)
+            au.print_field(own_field, GRID)
         
         check_self = 0
         
         pause = input("Beliebiege Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
-        if hit == True and counter != 0:
+        if hit == True and ships_left != 0:
             print(f"Spieler {active_player} hat getroffen und darf nochmal schießen.")
 
     ################################################################################################
@@ -157,7 +158,7 @@ while keep_going:
     '''check for end of playing'''
     ################################################################################################
 
-    if bool(input("Wollen Sie eine weitere Runde spielen? Nein(0), Ja(1)")):
+    if bool(input("Wollen Sie eine weitere Runde spielen? Nein(0), Ja(1)")) == True:
         keep_going = 1
     else:
         keep_going = 0

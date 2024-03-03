@@ -113,7 +113,7 @@ while keep_going:
         #######################################################################
             # Check for victory
         
-        counter = 0
+        ships_left = 0
 
         for i in range(25):
             if active_field[i] == "#":              # Check if a ship(#) is still on the active grid

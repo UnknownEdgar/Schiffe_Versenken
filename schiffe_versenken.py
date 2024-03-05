@@ -19,6 +19,17 @@
 #       # = ship
 #   space = water/placeholder
 
+# colors
+
+#       X = red
+#       O = blue (miss)
+#       O = dark grey (non placable point)
+#       # = green
+
+# comments
+
+#       c: = color: 
+
 
 # import of all requiered modules/files
 import converter as cv
@@ -101,17 +112,19 @@ while keep_going:
         #####################################################################
             # hit detection
 
-        if active_field[shot] == "#":               # Check if the shot hit a ship(#)
+        if active_field[shot] == "\033[32m" + "#" + "\33[00m":                # Check if the shot hit a ship(#)
             hit = True                        
-            active_shot_field[shot] = "X"           # mark corresponding field as a hit(X)
-            active_field[shot] = "X"                # mark hit of the ship in the enemies field
-            print("Der Schuss hat getroffen!")
+            active_shot_field[shot] = "\033[31m" + "X" + "\033[00m"           # mark corresponding field as a hit(X) colored red
+            active_field[shot] = "\033[31m" + "X" + "\033[00m"                # mark hit of the ship in the enemies field colored red
+            print("Der Schuss hat" + "\033[31m" + " getroffen!" + "\033[00m")
+                                     # c: red                     c: white
 
-        elif active_field[shot] != "#":             # Check if the shot missed a ship(#)
+        elif active_field[shot] != "\033[32m" + "#" + "\33[00m":              # Check if the shot missed a ship(#)
             hit = False 
-            active_shot_field[shot] = "O"           # mark corresponding field as a miss(O)
-            active_field[shot] = "O"                # mark miss in the enemies field
-            print("Der Schuss ging daneben!")
+            active_shot_field[shot] = "\033[36m" + "O" + "\033[00m"           # mark corresponding field as a miss(O) colored turquoise
+            active_field[shot] = "\033[36m" + "O" + "\033[00m"                # mark miss in the enemies field colored turquoise
+            print("Der Schuss ging" + "\033[36m" + " daneben!" + "\033[00m")  # print miss with "daneben" printed blue
+                                      # c: blue                  c: white
 
         #######################################################################
             # Check for victory
@@ -119,11 +132,11 @@ while keep_going:
         ships_left = 0
 
         for i in range(25):
-            if active_field[i] == "#":              # Check if a ship(#) is still on the active grid
-                ships_left += 1                     # count up the counter ships_left by one
+            if active_field[i] == "\033[32m" + "#" + "\33[00m":              # Check if a ship(#) is still on the active grid
+                ships_left += 1                                              # count up the counter ships_left by one
         
-        if ships_left == 0:                         # when counter didn't count up -> no more ship on grid
-            victory = 1                             # set feedback that one player won and the game shall stop
+        if ships_left == 0:                                                  # when counter didn't count up -> no more ship on grid
+            victory = 1                                                      # set feedback that one player won and the game shall stop
 
         ########################################################################
             # Switch active player
@@ -139,10 +152,10 @@ while keep_going:
             keep_going_loop = 1
             check_self = 0
             try:
-                check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))   # give the active player the opportunity to look at his own field
-            except ValueError:
+                check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))   # give the active player the opportunity to look at his own field
+            except ValueError:                                                             # c: red                  # c: green            # c: white
                 keep_going_loop = 0   
-            if check_self == 1:                                                                             # print own field when player demands to see it
+            if check_self == 1:                                                                         # print own field when player demands to see it
                 print("Deine Schiffe:")
                 au.print_field(own_field, GRID)
                 check_self = 0
@@ -155,15 +168,17 @@ while keep_going:
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
         if hit == True and ships_left != 0:
-            print(f"Spieler {active_player} hat getroffen und darf nochmal schießen.")
+            print(f"Spieler {active_player} hat" + "\033[31m" + " getroffen" + "\033[00m" + " und darf nochmal schießen.")
+                                                   # c: red                    c: white
 
     ################################################################################################
     '''output victory and winner'''
     ################################################################################################
 
     if victory == 1:
-        print(f"Herzlichen Glückwunsch!!! \nSpieler {active_player} hat gewonnen!")
-
+        print("Herzlichen Glückwunsch!!! \n" + "\033[1;33m" + "Spieler " + f"{active_player}" + "\033[00m" + " hat" + "\033[32m" + " gewonnen!" + "\33[00m")
+                                               # c: yellow                                      c: white              c: green                    c: white    
+          
     ################################################################################################
     '''check for end of playing'''
     ################################################################################################
@@ -171,8 +186,8 @@ while keep_going:
     while go_on != 1:
         go_on = 1
         try:
-            continue_play = int(input("Wollen Sie eine weitere Runde spielen?\n0 Nein\n1 Ja\n"))
-        except ValueError:
+            continue_play = int(input("Wollen Sie eine weitere Runde spielen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))
+        except ValueError:                                                         # c: red                  c: green              c: white
             go_on = 0
         if continue_play == 1:
             keep_going = 1

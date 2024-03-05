@@ -40,7 +40,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                               # check for errors in vertical placement
                               if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
                                     error_ver = True
-                              elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m"):
+                              elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
                                     error_ver = True
 
                   # horizontal placement of ship with size 3
@@ -78,7 +78,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         # check for errors in vertical placement
                         if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
                               error_ver = True
-                        elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m"):
+                        elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
                               error_ver = True
                   
                   # horizontal placement of ship with size 2

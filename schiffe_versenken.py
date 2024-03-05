@@ -185,6 +185,7 @@ while keep_going:
     go_on = 0
     while go_on != 1:
         go_on = 1
+        continue_play = 0
         try:
             continue_play = int(input("Wollen Sie eine weitere Runde spielen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))
         except ValueError:                                                         # c: red                  c: green              c: white

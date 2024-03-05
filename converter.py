@@ -43,7 +43,7 @@ def grid_conversion():
     while keep_going_l != 1:
 
         keep_going_l = 1
-
+        line = 0
         try:
             line = int(input("Zeile: "))
         except ValueError:

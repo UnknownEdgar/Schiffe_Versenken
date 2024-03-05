@@ -1,4 +1,3 @@
-
 # import of all requiered modules/files
 import ausgabe as a
 import converter as cv
@@ -8,7 +7,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       
       a.print_field(field_player, GRID)
 
-      print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 2 Schiffe mit 3 Feldern und 2 Schiffe mit 2 Feldern.\nDiese werden auch in dieser Reihenfolge platziert.\nBitte gib das linke obere Feld an.")
+      print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 2 Schiffe mit 3 Feldern und 2 Schiffe mit 2 Feldern.\nDie Schiffe werden auch in dieser Reihenfolge (3 -> 2) platziert.\nBitte gib das linke obere Feld an.")
     
       ship = 0
 

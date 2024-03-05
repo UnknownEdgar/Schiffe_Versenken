@@ -41,10 +41,13 @@ player_shot = ""            # shot input by player
 shot = 0                    # shot input by player after grid convertion 
 shotfield_1 = []
 shotfield_2 = []
-victory = False
+
 
 # programm loop
 while keep_going:
+
+    # initialization of victory
+    victory = False
 
     # creating all arrays with SPACES
     af.gen_array(field_1, FIELD_SIZE)
@@ -131,17 +134,24 @@ while keep_going:
         elif hit == False and active_player == 2:   # switch player one to be active when the shot missed
             active_player = 1
 
-        try:
-            check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))   # give the active player the opportunity to look at his own field
-        except ValueError:
-            Error = True    
-        if check_self == 1:                                                                             # print own field when player demands to see it
-            print("Deine Schiffe:")
-            au.print_field(own_field, GRID)
+        keep_going_loop = 0
+        while keep_going_loop != 1 and ships_left != 0:
+            keep_going_loop = 1
+            check_self = 0
+            try:
+                check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n0 Nein\n1 Ja\n "))   # give the active player the opportunity to look at his own field
+            except ValueError:
+                keep_going_loop = 0   
+            if check_self == 1:                                                                             # print own field when player demands to see it
+                print("Deine Schiffe:")
+                au.print_field(own_field, GRID)
+                check_self = 0
+            elif check_self > 1:
+                keep_going_loop = 0
+                print("Falsche Eingabe (0/1)")
+            
         
-        check_self = 0
-        
-        pause = input("Beliebiege Taste drücken, um fortzufahren")
+        pause = input("Beliebige Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
         if hit == True and ships_left != 0:
@@ -157,8 +167,17 @@ while keep_going:
     ################################################################################################
     '''check for end of playing'''
     ################################################################################################
-
-    if bool(input("Wollen Sie eine weitere Runde spielen? Nein(0), Ja(1)")) == True:
-        keep_going = 1
-    else:
-        keep_going = 0
+    go_on = 0
+    while go_on != 1:
+        go_on = 1
+        try:
+            continue_play = int(input("Wollen Sie eine weitere Runde spielen?\n0 Nein\n1 Ja\n"))
+        except ValueError:
+            go_on = 0
+        if continue_play == 1:
+            keep_going = 1
+        elif continue_play > 1:
+            go_on = 0
+            print("Falsche Eingabe (0/1)")
+        else:
+            keep_going = 0

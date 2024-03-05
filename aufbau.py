@@ -34,13 +34,13 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                               # check for errors in horizontal placement
                               if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
                                     error_hor = True
-                              elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X" or (field % GRID) > (GRID - SHIP_SIZE)):
+                              elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
                                     error_hor = True
 
                               # check for errors in vertical placement
                               if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
                                     error_ver = True
-                              elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
+                              elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m"):
                                     error_ver = True
 
                   # horizontal placement of ship with size 3
@@ -48,7 +48,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         ship += 1
                         add_left(field_player, field, GRID)
                         for i in range(SHIP_SIZE):
-                              field_player[field + i] = "#"
+                              field_player[field + i] = "\033[32m" + "#" + "\33[00m"
                               add_abr(field_player, field, i, FIELD_SIZE, GRID)
 
                   # vertical placement of ship with size 3
@@ -56,7 +56,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         ship += 1
                         add_above(field_player, field, GRID)
                         for i in range(SHIP_SIZE):
-                              field_player[field + (i * GRID)] = "#"
+                              field_player[field + (i * GRID)] = "\033[32m" + "#" + "\33[00m"
                               add_blr(field_player, field, (i * GRID), FIELD_SIZE, GRID)
 
                   else:
@@ -72,13 +72,13 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         # check for errors in horizontal placement
                         if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
                               error_hor = True
-                        elif dir == 0 and (field_player[field + i] == "O" or field_player[field + i] == "X") or (field % GRID) > (GRID - SHIP_SIZE):
+                        elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m") or (field % GRID) > (GRID - SHIP_SIZE):
                               error_hor = True
 
                         # check for errors in vertical placement
                         if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
                               error_ver = True
-                        elif dir == 1 and (field_player[field + (i * GRID)] == "O" or field_player[field + i] == "X"):
+                        elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m"):
                               error_ver = True
                   
                   # horizontal placement of ship with size 2
@@ -86,7 +86,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         ship += 1
                         add_left(field_player, field, GRID)
                         for i in range(SHIP_SIZE):
-                              field_player[field + i] = "#"
+                              field_player[field + i] = "\033[32m" + "#" + "\33[00m"
                               add_abr(field_player, field, i, FIELD_SIZE, GRID)
                   
                   # vertical placement of ship with size 2
@@ -94,7 +94,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                         ship += 1
                         add_above(field_player, field, GRID)
                         for i in range(SHIP_SIZE):
-                              field_player[field + (i * GRID)] = "#"
+                              field_player[field + (i * GRID)] = "\033[32m" + "#" + "\33[00m"
                               add_blr(field_player, field, (i * GRID), FIELD_SIZE, GRID)
                   
                   else:
@@ -109,7 +109,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
 
       # delete support characters for ship placement
       for i in range(FIELD_SIZE):
-            if field_player[i] == "O":
+            if field_player[i] == "\033[1;30m" + "O" + "\033[00m":
                   field_player[i] = " "
 
             else:
@@ -121,19 +121,19 @@ def aufbau(field_player, FIELD_SIZE, GRID):
 # functions to generate the supporting characters among the rules of the game
 def add_left(field_array, pos, grid):
       if (pos % grid) > 0:
-            field_array[pos - 1] = "O"
+            field_array[pos - 1] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_right(field_array, pos, grid):
       if (pos % grid) < 4:
-            field_array[pos + 1] = "O"
+            field_array[pos + 1] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_above(field_array, pos, grid):
       if pos > (grid - 1):
-            field_array[pos - grid] = "O"
+            field_array[pos - grid] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_below(field_array, pos, field_size, grid):
       if pos < (field_size - grid):
-            field_array[pos + grid] = "O"
+            field_array[pos + grid] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_abr(playfield, position, loop, field_size, grid):
       add_above(playfield, position + loop, grid)

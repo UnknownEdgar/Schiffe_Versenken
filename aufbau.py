@@ -112,6 +112,7 @@ def gen_array(in_array,size):
 # function to place the ships on the playfield
 def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship):
       
+      # initialize the error variables
       error_hor = False
       error_ver = False
 

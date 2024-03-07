@@ -111,20 +111,24 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
       # check for horizontal placement error
       for i in range(SHIP_SIZE):
             
-            if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
+            if direction == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
                   error_hor = True
+                  print("zu weit rechts")
             
-            elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
+            elif direction == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
                   error_hor = True
+                  print("blockierte Felder")
       
       # check for vertical placement error
       for i in range(SHIP_SIZE):
 
-            if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
+            if direction == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
                   error_ver = True
+                  print("zu weit unten")
             
-            elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
+            elif direction == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
                   error_ver = True
+                  print("blockierte Felder")
 
       # horizontal placement of ship
       if direction == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        
@@ -135,7 +139,7 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
                   add_abr(field_player, field, i, FIELD_SIZE, GRID)
       
       # vertical placement of ship
-      elif dir == 1 and error_ver == False:
+      elif direction == 1 and error_ver == False:
             ship += 1
             add_above(field_player, field, GRID)
             for i in range(SHIP_SIZE):

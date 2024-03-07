@@ -5,7 +5,7 @@ import converter as cv
 # function generating placement of the ships
 def aufbau(field_player, FIELD_SIZE, GRID):
       
-      a.print_field(field_player, GRID)
+      a.print_field(field_player, GRID, FIELD_SIZE)
 
       print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 1 Schlachtschiff (5 Felder), 2 Kreuzer (4 Felder), 3 Zerstörer (3 Felder), 4 U-Boote (2 Felder).\nDie Schiffe werden auch in dieser Reihenfolge (5 -> 2) platziert.\nBitte gib immer das linke obere Feld an.")
     
@@ -51,9 +51,9 @@ def aufbau(field_player, FIELD_SIZE, GRID):
 
                         SHIP_SIZE = 2
                         place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)        
-                        
 
-            a.print_field(field_player, GRID)
+
+            a.print_field(field_player, GRID, FIELD_SIZE)
 
       # delete support characters for ship placement
       for i in range(FIELD_SIZE):
@@ -64,7 +64,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                   field_player[i] = field_player[i]           
       # show the field with placed ships
       print("Aktuelles Spielfeld")
-      a.print_field(field_player, GRID)
+      a.print_field(field_player, GRID, FIELD_SIZE)
 
 # functions to generate the supporting characters among the rules of the game
 def add_left(field_array, pos, grid):

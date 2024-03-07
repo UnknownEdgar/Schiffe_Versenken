@@ -103,7 +103,7 @@ while keep_going:
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
         print("Deine Schüsse:")
-        au.print_field(active_shot_field, GRID)                         # Show the shot field of the active player
+        au.print_field(active_shot_field, GRID, FIELD_SIZE)                         # Show the shot field of the active player
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
     
@@ -157,7 +157,7 @@ while keep_going:
                 keep_going_loop = 0   
             if check_self == 1:                                                                         # print own field when player demands to see it
                 print("Deine Schiffe:")
-                au.print_field(own_field, GRID)
+                au.print_field(own_field, GRID, FIELD_SIZE)
                 check_self = 0
             elif check_self > 1:
                 keep_going_loop = 0

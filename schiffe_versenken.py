@@ -166,7 +166,7 @@ while keep_going:
                 print("Falsche Eingabe (0/1)")
             
         
-        pause = input("Beliebige Taste drücken, um fortzufahren")
+        input("Beliebige Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
         if hit == True and ships_left != 0:

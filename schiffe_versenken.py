@@ -37,8 +37,8 @@ import ausgabe as au
 import aufbau as af
 
 # constants
-FIELD_SIZE = 25
-GRID = 5
+FIELD_SIZE = 100
+GRID = 10
 
 # common variables
 active_field = []
@@ -131,7 +131,7 @@ while keep_going:
         
         ships_left = 0
 
-        for i in range(25):
+        for i in range(FIELD_SIZE):
             if active_field[i] == "\033[32m" + "#" + "\33[00m":              # Check if a ship(#) is still on the active grid
                 ships_left += 1                                              # count up the counter ships_left by one
         

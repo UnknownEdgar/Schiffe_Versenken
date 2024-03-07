@@ -71,7 +71,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       print("Aktuelles Spielfeld")
       a.print_field(field_player, GRID, FIELD_SIZE)
 
-# functions to generate the supporting characters among the rules of the game
+# functions to generate the supporting characters to comply to the rules of the game
 def add_left(field_array, pos, grid):
       if (pos % grid) > 0:
             field_array[pos - 1] = "\033[1;30m" + "O" + "\033[00m"

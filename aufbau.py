@@ -14,6 +14,8 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       # loop placement of all 10 ships
       while ship < 10 :
       
+            which_ship(ship)
+
             field = cv.grid_conversion()
 
             try:
@@ -164,3 +166,14 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
 
       # return the integer ship to get to the next ship or repeat the process with the same ship
       return ship
+
+# show the user which ship is to be placed
+def which_ship(ship):
+      if ship == 0:
+            print("Platziere bitte dein Schiff der Größe 5")
+      elif 1 <= ship < 3:
+            print("Platziere bitte dein Schiff der Größe 4")
+      elif 3 <= ship < 6:
+            print("Platziere bitte dein Schiff der Größe 3")
+      elif 6 <= ship < 10:
+            print("Platziere bitte dein Schiff der Größe 2")

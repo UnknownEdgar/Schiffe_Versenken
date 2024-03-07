@@ -72,7 +72,7 @@ def add_left(field_array, pos, grid):
             field_array[pos - 1] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_right(field_array, pos, grid):
-      if (pos % grid) < 4:
+      if (pos % grid) < (grid - 1):
             field_array[pos + 1] = "\033[1;30m" + "O" + "\033[00m"
 
 def add_above(field_array, pos, grid):
@@ -108,6 +108,7 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
       error_hor = False
       error_ver = False
 
+      # check for horizontal placement error
       for i in range(SHIP_SIZE):
             
             if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
@@ -115,7 +116,8 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
             
             elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
                   error_hor = True
-   
+      
+      # check for vertical placement error
       for i in range(SHIP_SIZE):
 
             if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):

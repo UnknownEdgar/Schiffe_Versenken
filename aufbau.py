@@ -103,8 +103,10 @@ def gen_array(in_array,size):
       for i in range(size):
             in_array.append(" ")
 
-def check_error_hor(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
+def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship):
+      
       error_hor = False
+      error_ver = False
 
       for i in range(SHIP_SIZE):
             
@@ -113,12 +115,7 @@ def check_error_hor(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
             
             elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
                   error_hor = True
-            
-            return error_hor
-
-def check_error_ver(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
-      error_ver = False
-      
+   
       for i in range(SHIP_SIZE):
 
             if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
@@ -126,13 +123,6 @@ def check_error_ver(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
             
             elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
                   error_ver = True
-
-      return error_ver
-
-def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship):
-      
-      error_hor = check_error_hor(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID)
-      error_ver = check_error_ver(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID)
 
       # horizontal placement of ship
       if direction == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        

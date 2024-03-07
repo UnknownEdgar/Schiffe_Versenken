@@ -75,10 +75,12 @@ while keep_going:
     # creating ships in arrays
     print("Spieler 1 ist dran:")
     af.aufbau(field_1, FIELD_SIZE, GRID)
+    input("Aufbau Spieler 1 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space
     print("Spieler 2 ist dran:") 
     af.aufbau(field_2, FIELD_SIZE, GRID)
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space 
+    input("Aufbau Spieler 2 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
 
     ################################################################################################
     '''Shot Sequence'''

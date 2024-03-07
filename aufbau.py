@@ -7,12 +7,12 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       
       a.print_field(field_player, GRID)
 
-      print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 2 Schiffe mit 3 Feldern und 2 Schiffe mit 2 Feldern.\nDie Schiffe werden auch in dieser Reihenfolge (3 -> 2) platziert.\nBitte gib das linke obere Feld an.")
+      print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 1 Schlachtschiff (5 Felder), 2 Kreuzer (4 Felder), 3 Zerstörer (3 Felder), 4 U-Boote (2 Felder).\nDie Schiffe werden auch in dieser Reihenfolge (5 -> 2) platziert.\nBitte gib immer das linke obere Feld an.")
     
       ship = 0
 
-      # loop placement of all 4 ships
-      while ship < 4 :
+      # loop placement of all 10 ships
+      while ship < 10 :
       
             field = cv.grid_conversion()
 
@@ -21,89 +21,37 @@ def aufbau(field_player, FIELD_SIZE, GRID):
             except ValueError:
                   error = True
 
-            error_hor = False
-            error_ver = False
-
-            # placement of ships with size of 3
-            if ship < 2 and dir != 8:
+            # placement of ships with size of 5
+            if dir == 8:
                   
-                  SHIP_SIZE = 3
-
-                  for i in range(SHIP_SIZE):
-                              
-                              # check for errors in horizontal placement
-                              if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
-                                    error_hor = True
-                              elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
-                                    error_hor = True
-
-                              # check for errors in vertical placement
-                              if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
-                                    error_ver = True
-                              elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
-                                    error_ver = True
-
-                  # horizontal placement of ship with size 3
-                  if dir == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        
-                        ship += 1
-                        add_left(field_player, field, GRID)
-                        for i in range(SHIP_SIZE):
-                              field_player[field + i] = "\033[32m" + "#" + "\33[00m"
-                              add_abr(field_player, field, i, FIELD_SIZE, GRID)
-
-                  # vertical placement of ship with size 3
-                  elif dir == 1 and error_ver == False:
-                        ship += 1
-                        add_above(field_player, field, GRID)
-                        for i in range(SHIP_SIZE):
-                              field_player[field + (i * GRID)] = "\033[32m" + "#" + "\33[00m"
-                              add_blr(field_player, field, (i * GRID), FIELD_SIZE, GRID)
-
-                  else:
-                        print("Falsche Eingabe. Bitte erneut probieren")
-            
-            # placement of ships with size of 2
-            elif 2 <= ship < 4 and dir != 8:
-
-                  SHIP_SIZE = 2
-
-                  for i in range(SHIP_SIZE):
-
-                        # check for errors in horizontal placement
-                        if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
-                              error_hor = True
-                        elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m") or (field % GRID) > (GRID - SHIP_SIZE):
-                              error_hor = True
-
-                        # check for errors in vertical placement
-                        if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
-                              error_ver = True
-                        elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
-                              error_ver = True
+                  # empty the field while placement
                   
-                  # horizontal placement of ship with size 2
-                  if dir == 0 and error_hor == False:
-                        ship += 1
-                        add_left(field_player, field, GRID)
-                        for i in range(SHIP_SIZE):
-                              field_player[field + i] = "\033[32m" + "#" + "\33[00m"
-                              add_abr(field_player, field, i, FIELD_SIZE, GRID)
-                  
-                  # vertical placement of ship with size 2
-                  elif dir == 1 and error_ver == False:
-                        ship += 1
-                        add_above(field_player, field, GRID)
-                        for i in range(SHIP_SIZE):
-                              field_player[field + (i * GRID)] = "\033[32m" + "#" + "\33[00m"
-                              add_blr(field_player, field, (i * GRID), FIELD_SIZE, GRID)
-                  
-                  else:
-                        print("Falsche Eingabe. Bitte erneut probieren")
-            
-            # empty the field while placement
-            elif dir == 8:
                   gen_empty(field_player, FIELD_SIZE)
                   ship = 0
+
+            else:
+
+                  if ship < 1:
+                        
+                        SHIP_SIZE = 5
+                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+                  
+                  # placement of ships with size of 2
+                  elif 1 <= ship < 3:
+
+                        SHIP_SIZE = 4
+                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+
+                  elif 3 <= ship < 6:
+
+                        SHIP_SIZE = 3
+                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+
+                  elif 6 <= ship < 10:
+
+                        SHIP_SIZE = 2
+                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)        
+                        
 
             a.print_field(field_player, GRID)
 
@@ -154,3 +102,53 @@ def gen_empty(field_array, field_size):
 def gen_array(in_array,size):
       for i in range(size):
             in_array.append(" ")
+
+def check_error_hor(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
+      error_hor = False
+
+      for i in range(SHIP_SIZE):
+            
+            if dir == 0 and  field > (FIELD_SIZE - SHIP_SIZE):
+                  error_hor = True
+            
+            elif dir == 0 and (field_player[field + i] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + i] == "\033[32m" + "#" + "\33[00m" or (field % GRID) > (GRID - SHIP_SIZE)):
+                  error_hor = True
+            
+            return error_hor
+
+def check_error_ver(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID):
+      error_ver = False
+      
+      for i in range(SHIP_SIZE):
+
+            if dir == 1 and field >= (FIELD_SIZE - ((SHIP_SIZE - 1) * GRID)):
+                  error_ver = True
+            
+            elif dir == 1 and (field_player[field + (i * GRID)] == "\033[1;30m" + "O" + "\033[00m" or field_player[field + (i * GRID)] == "\033[32m" + "#" + "\33[00m"):
+                  error_ver = True
+
+      return error_ver
+
+def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship):
+      
+      error_hor = check_error_hor(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID)
+      error_ver = check_error_ver(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID)
+
+      # horizontal placement of ship
+      if direction == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        
+            ship += 1
+            add_left(field_player, field, GRID)
+            for i in range(SHIP_SIZE):
+                  field_player[field + i] = "\033[32m" + "#" + "\33[00m"
+                  add_abr(field_player, field, i, FIELD_SIZE, GRID)
+      
+      # vertical placement of ship
+      elif dir == 1 and error_ver == False:
+            ship += 1
+            add_above(field_player, field, GRID)
+            for i in range(SHIP_SIZE):
+                  field_player[field + (i * GRID)] = "\033[32m" + "#" + "\33[00m"
+                  add_blr(field_player, field, (i * GRID), FIELD_SIZE, GRID)
+
+      else:
+            print("Falsche Eingabe. Bitte erneut probieren")

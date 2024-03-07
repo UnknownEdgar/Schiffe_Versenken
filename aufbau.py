@@ -34,23 +34,23 @@ def aufbau(field_player, FIELD_SIZE, GRID):
                   if ship < 1:
                         
                         SHIP_SIZE = 5
-                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+                        ship = place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
                   
                   # placement of ships with size of 2
                   elif 1 <= ship < 3:
 
                         SHIP_SIZE = 4
-                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+                        ship = place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
 
                   elif 3 <= ship < 6:
 
                         SHIP_SIZE = 3
-                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
+                        ship = place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)
 
                   elif 6 <= ship < 10:
 
                         SHIP_SIZE = 2
-                        place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)        
+                        ship = place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, dir, ship)        
 
 
             a.print_field(field_player, GRID, FIELD_SIZE)
@@ -152,3 +152,5 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
 
       else:
             print("Falsche Eingabe. Bitte erneut probieren")
+
+      return ship

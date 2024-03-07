@@ -46,7 +46,7 @@ def grid_conversion():
             i_row = 9
 
         else:
-            print("Falsche Eingabe (A - E)")
+            print("Falsche Eingabe (A - J)")
             keep_going_r = 0
 
     # initialization of the variable for the while loop

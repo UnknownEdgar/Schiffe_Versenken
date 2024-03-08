@@ -30,8 +30,23 @@ def grid_conversion():
         elif (row == "E") or (row == "e"):
             i_row = 4
 
+        elif (row == "F") or (row == "f"):
+            i_row = 5
+
+        elif (row == "G") or (row == "g"):
+            i_row = 6
+
+        elif (row == "H") or (row == "h"):
+            i_row = 7
+
+        elif (row == "I") or (row == "i"):
+            i_row = 8
+
+        elif (row == "J") or (row == "j"):
+            i_row = 9
+
         else:
-            print("Falsche Eingabe (A - E)")
+            print("Falsche Eingabe (A - J)")
             keep_going_r = 0
 
     # initialization of the variable for the while loop
@@ -49,14 +64,14 @@ def grid_conversion():
         except ValueError:
             keep_going_l = 0
         
-        if 0 < line < 6:
+        if 0 < line < 11:
             line = line
         else:
             keep_going_l = 0
-            print("Falsche Eingabe (1 - 5)")
+            print("Falsche Eingabe (1 - 10)")
 
     # calculation of the field
-    field = i_row + ((line - 1) * 5)
+    field = i_row + ((line - 1) * 10)
 
     #return of the field
     return field

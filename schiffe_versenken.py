@@ -37,8 +37,8 @@ import ausgabe as au
 import aufbau as af
 
 # constants
-FIELD_SIZE = 25
-GRID = 5
+FIELD_SIZE = 100
+GRID = 10
 
 # common variables
 active_field = []
@@ -75,10 +75,12 @@ while keep_going:
     # creating ships in arrays
     print("Spieler 1 ist dran:")
     af.aufbau(field_1, FIELD_SIZE, GRID)
+    input("Aufbau Spieler 1 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space
     print("Spieler 2 ist dran:") 
     af.aufbau(field_2, FIELD_SIZE, GRID)
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space 
+    input("Aufbau Spieler 2 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
 
     ################################################################################################
     '''Shot Sequence'''
@@ -103,7 +105,7 @@ while keep_going:
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
         print("Deine Schüsse:")
-        au.print_field(active_shot_field, GRID)                         # Show the shot field of the active player
+        au.print_field(active_shot_field, GRID, FIELD_SIZE)                         # Show the shot field of the active player
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
     
@@ -131,7 +133,7 @@ while keep_going:
         
         ships_left = 0
 
-        for i in range(25):
+        for i in range(FIELD_SIZE):
             if active_field[i] == "\033[32m" + "#" + "\33[00m":              # Check if a ship(#) is still on the active grid
                 ships_left += 1                                              # count up the counter ships_left by one
         
@@ -157,14 +159,14 @@ while keep_going:
                 keep_going_loop = 0   
             if check_self == 1:                                                                         # print own field when player demands to see it
                 print("Deine Schiffe:")
-                au.print_field(own_field, GRID)
+                au.print_field(own_field, GRID, FIELD_SIZE)
                 check_self = 0
             elif check_self > 1:
                 keep_going_loop = 0
                 print("Falsche Eingabe (0/1)")
             
         
-        pause = input("Beliebige Taste drücken, um fortzufahren")
+        input("Beliebige Taste drücken, um fortzufahren")
         print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")              # create empty space  
 
         if hit == True and ships_left != 0:

@@ -1,8 +1,11 @@
+#########################################################################################################
 # function to create the grid as a string to output on the command line
+#########################################################################################################
+
 def print_field(in_array, GRID, FIELD_SIZE):
     
     # start the string with the letters for the rows
-    ausgabe = "   A B C D E F G H I J"                                                             # generate the output of fields in terminal
+    ausgabe = "   A B C D E F G H I J"              # generate the output of fields in terminal
     
     # loop to add all numbers, lines and ships to the string
     for i in range(FIELD_SIZE):

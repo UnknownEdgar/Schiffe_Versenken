@@ -2,7 +2,7 @@
 ## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth, Edgar Malinowsky und Johannes Rudolph ##
 
 Das Programm stellt das Spiel "Schiffe versenken" dar und ermöglicht es zwei lokalen Spielern dieses per Konsolenein- und ausgabe zu spielen.
-Die erforderlichen Aktionen und eventuelle Fehleingaben bzw. Regelverstöße des Spielers werden dabei durch die Konsole ausgegeben und der Spieler wird durch das Spiel geleitet.
+Die erforderlichen Aktionen und eventuelle Fehleingaben bzw. Regelverstöße der Spieler werden dabei durch die Konsole ausgegeben und die Spieler werden durch das Spiel geleitet.
 Sobald ein Spieler das Spiel für sich entschieden hat, werden beide Spieler (Spieler 1 und Spieler 2) gefragt, ob sie eine weitere Runde spielen wollen.
 
 # Symbole des Spiels #
@@ -27,11 +27,15 @@ Die Regeln bei der Eingabe der Schiffe sind wie folgt:
       werden. Dies geht allerdings nur vor der Platzierung des letzten verfügbaren Schiffs eines Spielers.
     
 Wurden alle Schiffe durch die Spieler platziert, so beginnt das Spiel.
-Zuerst wird Spieler 1 aufgefordert auf das Feld des Gegners zu schießen. Dies wird ebenfalls über die Eingabe der Spalte (A-J) und anschließender Eingabe der Zeile (1-10) realisiert.
-Hat Spieler 1 getroffen, so darf er erneut schießen. Ging sein Schuss daneben, so ist Spieler 2 an der Reihe.
+Zuerst wird Spieler 1 aufgefordert auf das Feld des Gegners zu schießen. Der Schuss wird ebenfalls über die Eingabe der Spalte (A-J) und anschließender Eingabe der Zeile (1-10) realisiert.
+Hat der aktive Spieler getroffen, so darf er erneut schießen. Ging sein Schuss daneben, so ist der andere Spieler an der Reihe.
+In beiden Fällen werden die Schüsse im Schussfeld des aktiven Spielers angezeigt und ebenfalls im Feld des Gegners eingetragen.
 Jeder der Spieler erhält nach seinem Schuss die Möglichkeit sein eigenes Feld per Eingabe von 0 - nein oder 1 - ja nochmal anzusehen.
-Der aktive Spieler wird jeweils vor Abfrage des Schusses in der Konsole angegeben.
+Der aktive Spieler wird jeweils vor der Abfrage des Schusses in der Konsole angegeben.
+Dies geht immer weiter bis einer der Spieler alle Schiffe des Gegners versenkt hat.
 
+Sobald ein Spieler das Spiel für sich entschieden hat, wird dies durch die Konsole ausgegeben.
+Darauf folgt die Möglichkeit per Konsoleneingabe 0 - nein oder 1 - ja eine weitere Runde zu spielen oder das Programm zu beenden. 
 
 
 

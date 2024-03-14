@@ -1,11 +1,15 @@
+#########################################################################################################
+#                                       grid-converter
+#           converts the line and row inputs of the players in the indexes for the arrays 
+#########################################################################################################
 def grid_conversion():
 
     # initialization of the variable for the while loop
     keep_going_r = 0
          
-    #################################################################################     
-    # while loop for the input of the row with error feedback and conversion to int #
-    ################################################################################# 
+    #####################################################################################################     
+    '''while loop for the input of the row with error feedback and conversion to int'''
+    ##################################################################################################### 
     while keep_going_r != 1:
         
         keep_going_r = 1
@@ -52,9 +56,9 @@ def grid_conversion():
     # initialization of the variable for the while loop
     keep_going_l = 0
 
-    ############################################################
-    # while loop for the input of the line with error feedback #
-    ############################################################
+    #####################################################################################################
+    ''''while loop for the input of the line with error feedback'''
+    #####################################################################################################
     while keep_going_l != 1:
 
         keep_going_l = 1

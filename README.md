@@ -1,6 +1,9 @@
 # Schiffe_Versenken #
 ## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth, Edgar Malinowsky und Johannes Rudolph ##
 
+Link zum GitHub Repository:
+https://github.com/UnknownEdgar/Schiffe_Versenken
+
 Das Programm stellt das Spiel "Schiffe versenken" dar und ermöglicht es zwei lokalen Spielern dieses per Konsolenein- und ausgabe zu spielen.
 Die erforderlichen Aktionen und eventuelle Fehleingaben bzw. Regelverstöße der Spieler werden dabei durch die Konsole ausgegeben und die Spieler werden durch das Spiel geleitet.
 Sobald ein Spieler das Spiel gewonnen hat, werden beide Spieler (Spieler 1 und Spieler 2) gefragt, ob sie eine weitere Runde spielen wollen.

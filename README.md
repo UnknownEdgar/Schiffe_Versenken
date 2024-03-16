@@ -1,20 +1,21 @@
-# Schiffe_Versenken #
-## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth, Edgar Malinowsky und Johannes Rudolph ##
+# Schiffe_Versenken 
+## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth, Edgar Malinowsky und Johannes Rudolph
 
-Link zum GitHub Repository:
+### Link zum GitHub Repository:
 https://github.com/UnknownEdgar/Schiffe_Versenken
 
+### Allgemeines
 Das Programm stellt das Spiel "Schiffe versenken" dar und ermöglicht es zwei lokalen Spielern dieses per Konsolenein- und ausgabe zu spielen.
 Die erforderlichen Aktionen und eventuelle Fehleingaben bzw. Regelverstöße der Spieler werden dabei durch die Konsole ausgegeben und die Spieler werden durch das Spiel geleitet.
 Sobald ein Spieler das Spiel gewonnen hat, werden beide Spieler (Spieler 1 und Spieler 2) gefragt, ob sie eine weitere Runde spielen wollen.
 
-### Symbole des Spiels ###
+### Symbole des Spiels
 
            X = Treffer                                      in roter Farbe
            O = daneben / Barriere der Schiffplatzierung     in blauer / grauer Farbe
            # = Schiff                                       in grüner Farbe
 
-### Spielereingaben / Spielablauf ###
+### Spielereingaben / Spielablauf
 
 Das Spiel wird durch Ausführen des Programmes schiffe_versenken.py gestartet. (Möglicherweise müssen davor noch die Programme aufbau.py, ausgabe.py und converter.py initialisiert werden, damit alle Module ordentlich funktionieren)
 Wird das Spiel gestartet, so werden die Spieler der Reihenfolge nach (1, dann 2) gefragt wo sie ihre Schiffe platzieren möchten.

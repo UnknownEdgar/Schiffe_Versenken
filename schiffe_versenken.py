@@ -151,8 +151,11 @@ while keep_going:
         
         elif hit == False and active_player == 2:   # switch player one to be active when the shot missed
             active_player = 1
+            
+        #################################################################################################
+        #check if the player wants to see his own play-field again 
 
-        keep_going_loop = 0
+        keep_going_loop = 0                         # if player input is wrong, repeat question again
         while keep_going_loop != 1 and ships_left != 0:
             keep_going_loop = 1
             check_self = 0

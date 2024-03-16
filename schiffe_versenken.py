@@ -52,7 +52,7 @@ player_shot = ""            # shot input by player
 shot = 0                    # shot input by player after grid convertion 
 shotfield_1 = []            # shot-field by player 1
 shotfield_2 = []            # shot-field by player 2
-
+victory = False             # true when a player has won the game 
 
 #########################################################################################################
 #                                           main-game-loop
@@ -108,7 +108,7 @@ while keep_going:
         print(f"Spieler {active_player} ist dran.")                     # Show which player is active
         
         print("Deine Schüsse:")
-        au.print_field(active_shot_field, GRID, FIELD_SIZE)                         # Show the shot field of the active player
+        au.print_field(active_shot_field, GRID, FIELD_SIZE)             # Show the shot field of the active player
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
     

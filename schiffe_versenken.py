@@ -93,6 +93,7 @@ while continue_play == 1:
     input("Aufbau Spieler 2 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
     print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")
 
+
     #####################################################################################################
     '''Shot Sequence'''
     #####################################################################################################
@@ -140,7 +141,7 @@ while continue_play == 1:
             print("Der Schuss hat" + "\033[31m" + " getroffen!" + "\033[00m")
                                      # c: red                     c: white
             
-        elif active_field[shot] == "\033[31m" + "X" + "\033[00m":             # Check if field was already shot
+        elif active_field[shot] == "\033[31m" + "X" + "\033[00m":             # check if field was already shot
             hit = False
             print("Schiffsteil bereits abgeschossen!")
 
@@ -154,7 +155,7 @@ while continue_play == 1:
 
 
         #################################################################################################
-            # Check for victory
+            # check for victory
         
         ships_left = 0
 
@@ -169,7 +170,7 @@ while continue_play == 1:
 
 
         #################################################################################################
-            # Switch active player
+            # switch active player
 
         # switch to player two to be active when the shot missed
         if hit == False and active_player == 1:         
@@ -181,7 +182,7 @@ while continue_play == 1:
         
         
         #################################################################################################
-        #check if the player wants to see his own play-field again 
+        # check if the player wants to see his own play-field again 
 
         # if player input is wrong, repeat question again
         wrong_input = True                              
@@ -224,6 +225,7 @@ while continue_play == 1:
     #####################################################################################################
     '''check for end of playing'''
     #####################################################################################################
+
     wrong_input = True
     while wrong_input == True:
         wrong_input = False

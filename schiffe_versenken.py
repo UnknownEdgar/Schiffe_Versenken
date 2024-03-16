@@ -17,7 +17,7 @@
 #       X = hit
 #       O = miss / non placable point
 #       # = ship
-#   space = water/placeholder
+#   space = water / placeholder
 
 # colors
 
@@ -41,17 +41,17 @@ FIELD_SIZE = 100
 GRID = 10
 
 # common variables
-active_field = []
+active_field = []           # currently used play-field 
 active_player = 1           # active player playing the game
-active_shot_field =[] 
-field_1 = []
-field_2 = []
-hit = False
-keep_going = True
+active_shot_field =[]       # currently used shot-field
+field_1 = []                # play-field of player 1
+field_2 = []                # play-field of player 2
+hit = False                 # true when shot hit a ship 
+keep_going = True           # true when another round wants to be played
 player_shot = ""            # shot input by player 
 shot = 0                    # shot input by player after grid convertion 
-shotfield_1 = []
-shotfield_2 = []
+shotfield_1 = []            # shot-field by player 1
+shotfield_2 = []            # shot-field by player 2
 
 
 #########################################################################################################

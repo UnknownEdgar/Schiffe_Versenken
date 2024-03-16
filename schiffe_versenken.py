@@ -120,6 +120,10 @@ while keep_going:
             active_field[shot] = "\033[31m" + "X" + "\033[00m"                # mark hit of the ship in the enemies field colored red
             print("Der Schuss hat" + "\033[31m" + " getroffen!" + "\033[00m")
                                      # c: red                     c: white
+            
+        elif active_field[shot] == "\033[31m" + "X" + "\033[00m":             # Check if field was already shot
+            hit = False
+            print("Schiffsteil bereits abgeschossen!")
 
         elif active_field[shot] != "\033[32m" + "#" + "\33[00m":              # Check if the shot missed a ship(#)
             hit = False 

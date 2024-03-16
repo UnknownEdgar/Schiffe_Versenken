@@ -60,10 +60,12 @@ shotfield_2 = []            # shot-field by player 2
 victory = False             # true when a player has won the game 
 wrong_input = False         # true when a wrong input occures
 
+
 #########################################################################################################
 #                                           main-game-loop                                              #
 #                                                                                                       #
 #########################################################################################################
+
 while continue_play == 1:
 
     # initialization of victory
@@ -176,8 +178,8 @@ while continue_play == 1:
         # switch to player one to be active when the shot missed
         elif hit == False and active_player == 2:       
             active_player = 1
-
-
+        
+        
         #################################################################################################
         #check if the player wants to see his own play-field again 
 

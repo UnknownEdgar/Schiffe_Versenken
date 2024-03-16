@@ -19,6 +19,7 @@ Sobald ein Spieler das Spiel gewonnen hat, werden beide Spieler (Spieler 1 und S
 
 Das Spiel wird durch Ausführen des Programmes schiffe_versenken.py gestartet. (Möglicherweise müssen davor noch die Programme aufbau.py, ausgabe.py und converter.py initialisiert werden, damit alle Module ordentlich funktionieren)
 
+Das Spiel wird durch Ausführen des Programmes schiffe_versenken.py gestartet. (Möglicherweise müssen davor noch die Programme aufbau.py, ausgabe.py und converter.py initialisiert werden, damit alle Module ordentlich funktionieren)
 Wird das Spiel gestartet, so werden die Spieler der Reihenfolge nach (1, dann 2) gefragt wo sie ihre Schiffe platzieren möchten.
 Die Regeln bei der Eingabe der Schiffe sind wie folgt:
         

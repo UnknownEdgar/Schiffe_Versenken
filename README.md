@@ -1,5 +1,5 @@
 # Schiffe_Versenken 
-## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth, Edgar Malinowsky und Johannes Rudolph
+## Prüfungsaufgabe Programmentwurf GL-Informatik 1 (TEA23) der Studenten: Tom Gluth (7773289), Edgar Malinowsky (5538376) und Johannes Rudolph (8753542)
 
 ### Link zum GitHub Repository:
 https://github.com/UnknownEdgar/Schiffe_Versenken

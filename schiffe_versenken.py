@@ -77,15 +77,15 @@ while continue_play == 1:
     af.gen_empty(shotfield_1, FIELD_SIZE)
     af.gen_empty(shotfield_2, FIELD_SIZE)
 
-    # creating ships in arrays
+    # creating ships in arrays and an empty space between the players turns
     print("Spieler 1 ist dran:")
     af.aufbau(field_1, FIELD_SIZE, GRID)
     input("Aufbau Spieler 1 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
-    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space
+    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")
     print("Spieler 2 ist dran:") 
     af.aufbau(field_2, FIELD_SIZE, GRID)
     input("Aufbau Spieler 2 abgeschlossen\nBeliebige Taste drücken, um fortzusetzen")
-    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")  # create empty space 
+    print(" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n"" \n")
 
     #####################################################################################################
     '''Shot Sequence'''
@@ -95,8 +95,9 @@ while continue_play == 1:
         #################################################################################################
             # active player check
 
-        if active_player == 1:                  # check which player is active and assign 
-            active_field = field_2              # the corresponding fields to be active
+        # check which player is active and assign the corresponding fields to be active
+        if active_player == 1:                  
+            active_field = field_2
             active_shot_field = shotfield_1
             own_field = field_1
         elif active_player == 2:
@@ -107,26 +108,30 @@ while continue_play == 1:
         #################################################################################################
             # shot input and conversion
 
-        print(f"Spieler {active_player} ist dran.")                     # show which player is active
+        # show which player is active
+        print(f"Spieler {active_player} ist dran.")                     
         
+        # show the shot field of the active player
         print("Deine Schüsse:")
-        au.print_field(active_shot_field, GRID, FIELD_SIZE)             # show the shot field of the active player
+        au.print_field(active_shot_field, GRID, FIELD_SIZE)             
         
-        print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
-    
-        shot = cv.grid_conversion(GRID)                                 # convert the coordinates to the array index
+        # get the shot coordinates by the player
+        print("Auf welches Feld möchten Sie schießen?")
+        shot = cv.grid_conversion(GRID)                                 
 
         #################################################################################################
             # hit detection
 
-        if active_field[shot] == "\033[32m" + "#" + "\33[00m":                # check if the shot hit a ship(#)
+        # check if the shot hit a ship(#)
+        if active_field[shot] == "\033[32m" + "#" + "\33[00m":                
             hit = True                        
             active_shot_field[shot] = "\033[31m" + "X" + "\033[00m"           # mark corresponding field as a hit(X) colored red
             active_field[shot] = "\033[31m" + "X" + "\033[00m"                # mark hit of the ship in the enemies field colored red
             print("Der Schuss hat" + "\033[31m" + " getroffen!" + "\033[00m")
                                      # c: red                     c: white
 
-        elif active_field[shot] != "\033[32m" + "#" + "\33[00m":              # check if the shot missed a ship(#)
+        # check if the shot missed a ship(#)
+        elif active_field[shot] != "\033[32m" + "#" + "\33[00m":
             hit = False 
             active_shot_field[shot] = "\033[36m" + "O" + "\033[00m"           # mark corresponding field as a miss(O) colored turquoise
             active_field[shot] = "\033[36m" + "O" + "\033[00m"                # mark miss in the enemies field colored turquoise
@@ -138,27 +143,32 @@ while continue_play == 1:
         
         ships_left = 0
 
+        # check if a ship-piece(#) is still on the active grid and count up the counter ships_left by one
         for i in range(FIELD_SIZE):
-            if active_field[i] == "\033[32m" + "#" + "\33[00m":               # check if a ship-piece(#) is still on the active grid
-                ships_left += 1                                               # count up the counter ships_left by one
+            if active_field[i] == "\033[32m" + "#" + "\33[00m":               
+                ships_left += 1                                               
         
-        if ships_left == 0:                                                   # when counter didn't count up -> no more ship-piece on grid
-            victory = 1                                                       # set feedback that one player won and the game shall stop
+        # when counter didn't count up -> no more ship-piece on grid set feedback that one player won and the game shall stop
+        if ships_left == 0:                                                   
+            victory = 1                                                       
 
         #################################################################################################
             # Switch active player
 
-        if hit == False and active_player == 1:         # switch player two to be active when the shot missed
+        # switch to player two to be active when the shot missed
+        if hit == False and active_player == 1:         
             active_player = 2
         
-        elif hit == False and active_player == 2:       # switch player one to be active when the shot missed
+        # switch to player one to be active when the shot missed
+        elif hit == False and active_player == 2:       
             active_player = 1
             
         #################################################################################################
         #check if the player wants to see his own play-field again 
 
+        # if player input is wrong, repeat question again
         wrong_input = True                              
-        while wrong_input == True and ships_left != 0:  # if player input is wrong, repeat question again
+        while wrong_input == True and ships_left != 0:  
             wrong_input = False
             check_self = 0
 
@@ -167,7 +177,8 @@ while continue_play == 1:
             except ValueError:                                                             # c: red                  # c: green            # c: white
                 wrong_input = True  
 
-            if check_self == 1:                                                                  # print own field when player demands to see it
+            # print own field when player demands to see it
+            if check_self == 1:
                 print("Deine Schiffe:")
                 au.print_field(own_field, GRID, FIELD_SIZE)
                 check_self = 0

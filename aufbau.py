@@ -1,5 +1,6 @@
 #########################################################################################################
 #                                   ship-placement-code (Aufbau)
+#                       function to create the array with all ships of a player
 #########################################################################################################
 
 # import of all requiered modules/files
@@ -10,7 +11,8 @@ import converter as cv
 # function generating placement of the ships
 def aufbau(field_player, FIELD_SIZE, GRID):
       
-      a.print_field(field_player, GRID, FIELD_SIZE)   # print the playfield
+      # print the playfield
+      a.print_field(field_player, GRID, FIELD_SIZE)
 
       print("In welche Felder möchtest du deine Schiffe setzen?\nZur Verfügung stehen 1 Schlachtschiff (5 Felder), 2 Kreuzer (4 Felder), 3 Zerstörer (3 Felder), 4 U-Boote (2 Felder).\nDie Schiffe werden auch in dieser Reihenfolge (5 -> 2) platziert.\nBitte gib immer das linke obere Feld an.")
     
@@ -18,11 +20,14 @@ def aufbau(field_player, FIELD_SIZE, GRID):
 
       # loop placement of all 10 ships
       while ship < 10 :
-      
+            
+            # print which ship is to be placed
             which_ship(ship)
 
+            # input the field to place the ship
             field = cv.grid_conversion(GRID)
 
+            # input the direction of the ship
             try:
                   dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen?\nMit 8 kann das Spielfeld zurückgesetzt werden\n"))
             except ValueError:
@@ -78,10 +83,10 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       print("Aktuelles Spielfeld")
       a.print_field(field_player, GRID, FIELD_SIZE)
 
+
 #########################################################################################################
 # functions to generate the supporting characters to comply to the rules of the game
       
-
 def add_left(field_array, pos, grid):
       if (pos % grid) > 0:
             field_array[pos - 1] = "\033[1;30m" + "O" + "\033[00m"
@@ -98,6 +103,7 @@ def add_below(field_array, pos, field_size, grid):
       if pos < (field_size - grid):
             field_array[pos + grid] = "\033[1;30m" + "O" + "\033[00m"
 
+
 #########################################################################################################
 # combination of some functions of the generation of support characters
             
@@ -113,9 +119,11 @@ def add_blr(playfield, position, loop, field_size, grid):
 
 #########################################################################################################
 # function to empty the field
+      
 def gen_empty(field_array, field_size):
       for i in range(field_size):
             field_array[i] = " "
+
 
 #########################################################################################################
 # funtion to genrate the field
@@ -123,6 +131,7 @@ def gen_empty(field_array, field_size):
 def gen_array(in_array,size):
       for i in range(size):
             in_array.append(" ")
+
 
 #########################################################################################################
 # function to place the ships on the playfield
@@ -181,6 +190,7 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
 
       # return the integer ship to get to the next ship or repeat the process with the same ship
       return ship
+
 
 #########################################################################################################
 # show the user which ship is to be placed

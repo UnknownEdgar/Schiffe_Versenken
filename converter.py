@@ -3,7 +3,14 @@
 #           converts the line and row inputs of the players in the indexes for the arrays 
 #########################################################################################################
 
-def grid_conversion():
+
+
+
+#########################################################################################################
+#                                           Function 
+#########################################################################################################
+
+def grid_conversion(GRID):
        
     #####################################################################################################     
     '''while loop for the input of the row with error feedback and conversion to int'''
@@ -78,7 +85,7 @@ def grid_conversion():
             print("Falsche Eingabe (1 - 10)")
 
     # calculation of the field
-    field = i_row + ((line - 1) * 10)
+    field = i_row + ((line - 1) * GRID)
 
     # return of the field
     return field

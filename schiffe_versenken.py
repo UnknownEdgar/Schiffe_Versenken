@@ -49,6 +49,7 @@ field_1 = []                # play-field of player 1
 field_2 = []                # play-field of player 2
 hit = False                 # true when shot hit a ship 
 player_shot = ""            # shot input by player 
+ships_left = 0              # amount of ships-pieces left in a play-field  
 shot = 0                    # shot input by player after grid convertion 
 shotfield_1 = []            # shot-field by player 1
 shotfield_2 = []            # shot-field by player 2
@@ -113,7 +114,7 @@ while continue_play == 1:
         
         print("Auf welches Feld möchten Sie schießen?")                 # get the shot coordinates by the player
     
-        shot = cv.grid_conversion()                                     # convert the coordinates to the array index
+        shot = cv.grid_conversion(GRID)                                     # convert the coordinates to the array index
 
         #################################################################################################
             # hit detection
@@ -160,7 +161,7 @@ while continue_play == 1:
         while wrong_input == True and ships_left != 0:
             wrong_input = False
             check_self = 0
-            
+
             try:
                 check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))   # give the active player the opportunity to look at his own field
             except ValueError:                                                             # c: red                  # c: green            # c: white

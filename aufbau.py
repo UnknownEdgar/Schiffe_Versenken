@@ -21,7 +21,7 @@ def aufbau(field_player, FIELD_SIZE, GRID):
       
             which_ship(ship)
 
-            field = cv.grid_conversion()
+            field = cv.grid_conversion(GRID)
 
             try:
                   dir = int(input("Soll das Schiff horizontal (0) oder vertikal (1) stehen?\nMit 8 kann das Spielfeld zurückgesetzt werden\n"))

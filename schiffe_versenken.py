@@ -1,8 +1,12 @@
 #########################################################################################################
+#                                                                                                       #
 #                                       game: Schiffe versenken                                         #
-#                            Prüfungsaufgabe Informatik TEA23 Programmentwurf                           #                       
+#                            Prüfungsaufgabe Informatik TEA23 Programmentwurf                           #
+#                                                                                                       #                       
 #########################################################################################################
+#                                                                                                       #
 #                        authors: Edgar Malinowsky, Johannes Rudolph, Tom Gluth                         #
+#                                                                                                       #
 #########################################################################################################
 
 
@@ -56,10 +60,12 @@ shotfield_2 = []            # shot-field by player 2
 victory = False             # true when a player has won the game 
 wrong_input = False         # true when a wrong input occures
 
+
 #########################################################################################################
-#                                           main-game-loop
-# 
+#                                           main-game-loop                                              #
+#                                                                                                       #
 #########################################################################################################
+
 while continue_play == 1:
 
     # initialization of victory
@@ -92,8 +98,10 @@ while continue_play == 1:
     #####################################################################################################
 
     while victory == False:
+
+
         #################################################################################################
-            # active player check
+        # active player check
 
         # check which player is active and assign the corresponding fields to be active
         if active_player == 1:                  
@@ -104,6 +112,7 @@ while continue_play == 1:
             active_field = field_1
             active_shot_field = shotfield_2
             own_field = field_2
+
 
         #################################################################################################
             # shot input and conversion
@@ -118,6 +127,7 @@ while continue_play == 1:
         # get the shot coordinates by the player
         print("Auf welches Feld möchten Sie schießen?")
         shot = cv.grid_conversion(GRID)                                 
+
 
         #################################################################################################
             # hit detection
@@ -142,6 +152,7 @@ while continue_play == 1:
             print("Der Schuss ging" + "\033[36m" + " daneben!" + "\033[00m")  # print miss with "daneben" printed blue
                                       # c: blue                  c: white
 
+
         #################################################################################################
             # Check for victory
         
@@ -156,6 +167,7 @@ while continue_play == 1:
         if ships_left == 0:                                                   
             victory = 1                                                       
 
+
         #################################################################################################
             # Switch active player
 
@@ -166,7 +178,8 @@ while continue_play == 1:
         # switch to player one to be active when the shot missed
         elif hit == False and active_player == 2:       
             active_player = 1
-            
+        
+        
         #################################################################################################
         #check if the player wants to see his own play-field again 
 
@@ -198,6 +211,7 @@ while continue_play == 1:
             print(f"Spieler {active_player} hat" + "\033[31m" + " getroffen" + "\033[00m" + " und darf nochmal schießen.")
                                                    # c: red                    c: white
 
+
     #####################################################################################################
     '''output victory and winner'''
     #####################################################################################################
@@ -205,6 +219,7 @@ while continue_play == 1:
     if victory == 1:
         print("Herzlichen Glückwunsch!!! \n" + "\033[1;33m" + "Spieler " + f"{active_player}" + "\033[00m" + " hat" + "\033[32m" + " gewonnen!" + "\33[00m")
                                                # c: yellow                                      c: white              c: green                    c: white    
+  
           
     #####################################################################################################
     '''check for end of playing'''

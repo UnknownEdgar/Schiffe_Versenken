@@ -1,6 +1,12 @@
 #########################################################################################################
-#                                       grid-converter
-#           converts the line and row inputs of the players in the indexes for the arrays 
+#                                                                                                       #
+#                                       grid-converter                                                  #
+#           converts the line and row inputs of the players in the indexes for the arrays               #
+#                                                                                                       #
+#########################################################################################################
+#                                                                                                       #
+#                        authors: Edgar Malinowsky, Johannes Rudolph, Tom Gluth                         #
+#                                                                                                       #
 #########################################################################################################
 
 
@@ -12,6 +18,7 @@
 
 def grid_conversion(GRID):
        
+
     #####################################################################################################     
     '''while loop for the input of the row with error feedback and conversion to int'''
     ##################################################################################################### 
@@ -61,6 +68,7 @@ def grid_conversion(GRID):
         else:
             print("Falsche Eingabe (A - J)")
             wrong_input = True
+
 
     #####################################################################################################
     ''''while loop for the input of the line with error feedback'''

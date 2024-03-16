@@ -157,8 +157,8 @@ def place_ship(field, field_player, FIELD_SIZE, SHIP_SIZE, GRID, direction, ship
                   error_ver = True
 
       # placement of the ships
-      #     add a boat character to every field where it should be
-      #     add support characters to all surrounding fields
+            #     - add a boat character to every field where it should be
+            #     - add support characters to all surrounding fields
 
       # horizontal placement of ship
       if direction == 0 and (field % GRID) < (GRID - SHIP_SIZE + 1) and error_hor == False:                        

@@ -1,7 +1,14 @@
 #########################################################################################################
-#                               print playfield (Ausgabe)
-#           function to create the grid as a string to output on the command line
+#                                                                                                       #
+#                               print playfield (Ausgabe)                                               #
+#           function to create the grid as a string to output on the command line                       #
+#                                                                                                       #
 #########################################################################################################
+#                                                                                                       #
+#                       authors: Edgar Malinowsky, Johannes Rudolph, Tom Gluth                          #
+#                                                                                                       #
+#########################################################################################################
+
 
 def print_field(in_array, GRID, FIELD_SIZE):
     
@@ -11,7 +18,7 @@ def print_field(in_array, GRID, FIELD_SIZE):
     # loop to add all numbers, lines and ships to the string
     for i in range(FIELD_SIZE):
 
-        # add only "|" in between the fields
+        # add "|" in between the fields
         if (i % GRID) != 0:
             output_str = output_str + in_array[i] + "|"
         

@@ -1,14 +1,23 @@
 #########################################################################################################
-#                                   ship-placement-code (Aufbau)
-#                       function to create the array with all ships of a player
+#                                                                                                       #
+#                                   ship-placement-code (Aufbau)                                        #
+#                       function to create the array with all ships of a player                         #
+#                                                                                                       #
 #########################################################################################################
+#                                                                                                       #
+#                        authors: Edgar Malinowsky, Johannes Rudolph, Tom Gluth                         #
+#                                                                                                       #
+#########################################################################################################
+
 
 # import of all requiered modules/files
 import ausgabe as a
 import converter as cv
 
+
 #########################################################################################################
 # function generating placement of the ships
+
 def aufbau(field_player, FIELD_SIZE, GRID):
       
       # print the playfield

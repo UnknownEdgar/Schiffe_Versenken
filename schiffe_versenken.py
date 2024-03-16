@@ -44,21 +44,22 @@ GRID = 10
 active_field = []           # currently used play-field 
 active_player = 1           # active player playing the game
 active_shot_field =[]       # currently used shot-field
+continue_play = 1           # true when another round wants to be played
 field_1 = []                # play-field of player 1
 field_2 = []                # play-field of player 2
 hit = False                 # true when shot hit a ship 
-keep_going = True           # true when another round wants to be played
 player_shot = ""            # shot input by player 
 shot = 0                    # shot input by player after grid convertion 
 shotfield_1 = []            # shot-field by player 1
 shotfield_2 = []            # shot-field by player 2
 victory = False             # true when a player has won the game 
+wrong_input = False         # true when a wrong input occures
 
 #########################################################################################################
 #                                           main-game-loop
 # 
 #########################################################################################################
-while keep_going:
+while continue_play == 1:
 
     # initialization of victory
     victory = False
@@ -155,20 +156,22 @@ while keep_going:
         #################################################################################################
         #check if the player wants to see his own play-field again 
 
-        keep_going_loop = 0                         # if player input is wrong, repeat question again
-        while keep_going_loop != 1 and ships_left != 0:
-            keep_going_loop = 1
+        wrong_input = True                       # if player input is wrong, repeat question again
+        while wrong_input == True and ships_left != 0:
+            wrong_input = False
             check_self = 0
+            
             try:
                 check_self = int(input("Möchtest du dein eigenes Feld noch mal sehen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))   # give the active player the opportunity to look at his own field
             except ValueError:                                                             # c: red                  # c: green            # c: white
-                keep_going_loop = 0   
+                wrong_input = True  
+
             if check_self == 1:                                                                         # print own field when player demands to see it
                 print("Deine Schiffe:")
                 au.print_field(own_field, GRID, FIELD_SIZE)
                 check_self = 0
             elif check_self > 1:
-                keep_going_loop = 0
+                wrong_input = True
                 print("Falsche Eingabe (0/1)")
             
         
@@ -190,18 +193,17 @@ while keep_going:
     #####################################################################################################
     '''check for end of playing'''
     #####################################################################################################
-    go_on = 0
-    while go_on != 1:
-        go_on = 1
+    wrong_input = True
+    while wrong_input == True:
+        wrong_input = False
         continue_play = 0
+
         try:
             continue_play = int(input("Wollen Sie eine weitere Runde spielen?\n" + "\033[31m" + "0 Nein\n" + "\033[32m" + "1 Ja" + "\33[00m" + "\n"))
         except ValueError:                                                         # c: red                  c: green              c: white
-            go_on = 0
-        if continue_play == 1:
-            keep_going = 1
-        elif continue_play > 1:
-            go_on = 0
+            wrong_input = True
+
+        if continue_play > 1:
+            wrong_input = True
             print("Falsche Eingabe (0/1)")
-        else:
-            keep_going = 0
+        

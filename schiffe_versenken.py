@@ -32,9 +32,9 @@
 
 
 # import of all requiered modules/files
-import converter as cv
-import ausgabe as au
-import aufbau as af
+import subprograms.converter as cv
+import subprograms.ausgabe as au
+import subprograms.aufbau as af
 
 # constants
 FIELD_SIZE = 100

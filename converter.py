@@ -2,22 +2,24 @@
 #                                       grid-converter
 #           converts the line and row inputs of the players in the indexes for the arrays 
 #########################################################################################################
-def grid_conversion():
 
-    # initialization of the variable for the while loop
-    keep_going_r = 0
-         
+def grid_conversion():
+       
     #####################################################################################################     
     '''while loop for the input of the row with error feedback and conversion to int'''
     ##################################################################################################### 
-    while keep_going_r != 1:
+    
+    # initialization of the variable for the while loop
+    wrong_input = True
+    
+    while wrong_input == True:
         
-        keep_going_r = 1
+        wrong_input = False
     
         try:
             row = str(input("Spalte: "))
         except ValueError:
-            keep_going_r = 0
+            wrong_input = True
     
         if (row == "A") or (row == "a"):
             i_row = 0
@@ -51,31 +53,32 @@ def grid_conversion():
 
         else:
             print("Falsche Eingabe (A - J)")
-            keep_going_r = 0
-
-    # initialization of the variable for the while loop
-    keep_going_l = 0
+            wrong_input = True
 
     #####################################################################################################
     ''''while loop for the input of the line with error feedback'''
     #####################################################################################################
-    while keep_going_l != 1:
+    
+     # initialization of the variable for the while loop
+    wrong_input = True
+    
+    while wrong_input == True:
 
-        keep_going_l = 1
+        wrong_input = False
         line = 0
         try:
             line = int(input("Zeile: "))
         except ValueError:
-            keep_going_l = 0
+            wrong_input = True
         
         if 0 < line < 11:
             line = line
         else:
-            keep_going_l = 0
+            wrong_input = True
             print("Falsche Eingabe (1 - 10)")
 
     # calculation of the field
     field = i_row + ((line - 1) * 10)
 
-    #return of the field
+    # return of the field
     return field

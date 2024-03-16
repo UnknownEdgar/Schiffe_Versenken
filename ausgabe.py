@@ -1,5 +1,5 @@
 #########################################################################################################
-# function to create the grid as a string to output on the command line
+''' function to create the grid as a string to output on the command line'''
 #########################################################################################################
 
 def print_field(in_array, GRID, FIELD_SIZE):
